@@ -6,6 +6,7 @@ From Phil Hagelberg's emacs-starter-kit.
 
 * Intended for use with [Carbon Emacs](http://www.google.com/search?hl=en-US&q=carbon+emacs&rls=0.4&client=stainless&ie=UTF-8)
 * May have partially functional or half-implemented features. Try forking [the original from Phil](http://github.com/technomancy/emacs-starter-kit/tree/master) if you experience problems or want a fresh start.
+* Put the link and compilation instructions for carbon emacs in here
 
 ### Some current additions
 
