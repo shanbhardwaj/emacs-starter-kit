@@ -1,6 +1,12 @@
-[submodule "src/org"]
-	path = src/org
+[submodule "vendor/org"]
+	path = vendor/org
 	url = git://repo.or.cz/org-mode.git
-[submodule "src/magit"]
-	path = src/magit
+[submodule "vendor/magit"]
+	path = vendor/magit
 	url = git://github.com/jwiegley/magit.git
+[submodule "vendor/eshell"]
+	path = vendor/eshell
+	url = git://github.com/jwiegley/eshell.git
+[submodule "vendor/rinari"]
+	path = vendor/rinari
+	url = git://github.com/eschulte/rinari.git
