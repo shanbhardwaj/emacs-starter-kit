@@ -87,7 +87,7 @@ exec-to-string command, but it works and seems fast"
 
 ;; Rinari
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/jump.el"))
-(add-to-list 'load-path (concat dotfiles-dir "/src/rinari"))
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/rinari"))
 (require 'rinari)
 (define-key rinari-minor-mode-map [(control meta shift down)] 'rinari-find-rspec)
 (define-key rinari-minor-mode-map [(control meta shift left)] 'rinari-find-controller)

@@ -1,11 +1,11 @@
-;; DESCRIPTION: topfunky settings
+;; DESCRIPTION: shan's settings
 
 (add-to-list 'load-path (concat dotfiles-dir "/vendor"))
-(add-to-list 'load-path (concat dotfiles-dir "/src"))
-
+;;=====================================
 ;; Save backups in one place
 ;; Put autosave files (ie #foo#) in one place, *not*
 ;; scattered all over the file system!
+;;=====================================
 (defvar autosave-dir
   (concat "/tmp/emacs_autosaves/" (user-login-name) "/"))
 
@@ -27,15 +27,25 @@
 (defvar backup-dir (concat "/tmp/emacs_backups/" (user-login-name) "/"))
 (setq backup-directory-alist (list (cons "." backup-dir)))
 
+;;=====================================
+;; some settings
+;;=====================================
 (setq default-tab-width 2)
 (setq tab-width 2)
 (column-number-mode 1)
 (recentf-mode 1)
-(global-visual-line-mode 1)		;
+(global-visual-line-mode 1)
+(global-linum-mode 1)
 (setq mac-allow-anti-aliasing t) 
 
-;
+(modify-all-frames-parameters
+ '((font . "-unknown-Bitstream Vera Sans Mono-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")))
+(set-frame-font "-unknown-Bitstream Vera Sans Mono-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1" "keep-size")
+
+
+;;=====================================
 ;; Clojure
+;;=====================================
 ;;(eval-after-load 'clojure-mode '(clojure-slime-config))
 
 ;; Plain Text
@@ -52,7 +62,9 @@
   (revert-buffer t t t))
 (global-set-key [f5] 'refresh-file)
 
+;;=====================================
 ;; Snippets
+;;=====================================
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/yasnippet.el"))
 (require 'yasnippet)
 (yas/initialize)
@@ -60,23 +72,31 @@
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/yasnippets-rails/"))
 (yas/load-directory (concat dotfiles-dir "/vendor/yasnippets-rails/rails-snippets"))
 
+;;=====================================
 ;; Commands
+;;=====================================
 (require 'unbound)
 
+;;=====================================
 ;; Minor Modes
-(add-to-list 'load-path (concat dotfiles-dir "/vendor/textmate.el"))
-(require 'textmate)
-(textmate-mode)
+;;=====================================
+;; (add-to-list 'load-path (concat dotfiles-dir "/vendor/textmate.el"))
+;; (require 'textmate)
+;; (textmate-mode)
 (require 'whitespace)
 
-;; ---- load paths for twittering mode
+;;=====================================
+;; ---- Twittering mode
+;;=====================================
 ;;(add-to-list 'load-path "~/.emacs.d/vendor/twittering-mode/")
 ;;(add-to-list 'load-path ("~/.emacs.d/emacs-starter-kit/vendor/twitteing-mode/"))
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/twittering-mode"))
 (require 'twittering-mode)
 (setq twittering-username "shanbhardwaj")
 
+;;=====================================
 ;; Major Modes
+;;=====================================
 
 ;; Javascript
 ;; TODO javascript-indent-level 2
@@ -112,6 +132,9 @@
 
 ;; dabbrev-case-fold-search for case-sensitive search
 
+;;=====================================
+;; AppleScript mode
+;;=====================================
 
 (autoload 'applescript-mode "applescript-mode" "major mode for editing AppleScript source." t)
 (setq auto-mode-alist
@@ -124,6 +147,11 @@
   "Major mode for editing Markdown files" t)
 (add-to-list 'auto-mode-alist '("\\.mdown\\'" . markdown-mode))
 
+(require 'sass-mode)
+(add-to-list 'auto-mode-alist '("\\.sass$" . sass-mode))
+
+(add-to-list 'auto-mode-alist '("\\.sake\\'" . ruby-mode))
+
 (require 'haml-mode)
 (add-to-list 'auto-mode-alist '("\\.haml$" . haml-mode))
 (define-key haml-mode-map [(control meta down)] 'haml-forward-sexp)
@@ -131,16 +159,14 @@
 (define-key haml-mode-map [(control meta left)] 'haml-up-list)
 (define-key haml-mode-map [(control meta right)] 'haml-down-list)
 
-(require 'sass-mode)
-(add-to-list 'auto-mode-alist '("\\.sass$" . sass-mode))
 
-(add-to-list 'auto-mode-alist '("\\.sake\\'" . ruby-mode))
-
+;;=====================================
 ;; XCODE
+;;=====================================
 (require 'objc-c-mode)
 
-;; (setq c-default-style "bsd"
-;;       c-basic-offset 2)
+(setq c-default-style "bsd"
+      c-basic-offset 2)
 
 (require 'cc-menus)
 
@@ -160,32 +186,35 @@
 (add-to-list 'auto-mode-alist '("\\.h\\'" . objc-mode))
 (require 'objj-mode)
 
+;;=====================================
 ;; gist
+;;=====================================
 (require 'gist)
 
 ;; Mercurial
 ;;(require 'mercurial)
 
+;;=====================================
 ;; Color Themes
+;;=====================================
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/color-theme"))
 (require 'color-theme)
 (color-theme-initialize)
+(color-theme-vibrant-ink)
+(color-theme-example)
 
 ;; Functions
 
 (require 'line-num)
 
+;;=====================================
 ;; Full screen toggle
-(defun toggle-fullscreen ()
-  (interactive)
-  (set-frame-parameter nil 'fullscreen (if (frame-parameter nil 'fullscreen)
-                                           nil
-                                         'fullboth)))
-(global-set-key (kbd "M-n") 'toggle-fullscreen)
+;;=====================================
 
 
+;;=====================================
 ;; Keyboard
-
+;;=====================================
 ;; Split Windows
 (global-set-key [f6] 'split-window-horizontally)
 (global-set-key [f7] 'split-window-vertically)
@@ -195,7 +224,7 @@
 (global-set-key (kbd "M-s") 'save-buffer)
 (global-set-key (kbd "M-z") 'undo)
 
-;; Keyboard Overrides
+;;Keyboard Overrides
 (define-key textile-mode-map (kbd "M-s") 'save-buffer)
 (define-key text-mode-map (kbd "M-s") 'save-buffer)
 
@@ -219,22 +248,52 @@
 
 (prefer-coding-system 'utf-8)
 
-(server-start)
+;;=====================================
+;; Transparency and alpha settings
+;;=====================================
 
-(modify-all-frames-parameters
- '((font . "-unknown-Bitstream Vera Sans Mono-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")))
-(set-frame-font "-unknown-Bitstream Vera Sans Mono-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1" "keep-size")
-
-
-;; Experimentation
-;; TODO Move to separate theme file.
-
-;;; theme-start
-(defun topfunky-reload-theme ()
-  "Reload init.el and the color-theme-helvetica"
+(defun transparency-set-initial-value ()
+  "Set initial value of alpha parameter for the current frame"
   (interactive)
-  (save-buffer)
-  (eval-buffer)
-  (color-theme-helvetica))
+  (if (equal (frame-parameter nil 'alpha) nil)
+      (set-frame-parameter nil 'alpha 100)))
 
-;;(global-set-key [f8] 'topfunky-reload-theme)
+(defun transparency-set-value (numb)
+  "Set level of transparency for the current frame"
+  (interactive "nEnter transparency level in range 0-100: ")
+  (if (> numb 100)
+      (message "Error! The maximum value for transparency is 100!")
+    (if (< numb 0)
+        (message "Error! The minimum value for transparency is 0!")
+      (set-frame-parameter nil 'alpha numb))))
+
+(defun transparency-increase ()
+  "Increase level of transparency for the current frame"
+  (interactive)
+  (transparency-set-initial-value)
+  (if (> (frame-parameter nil 'alpha) 0)
+      (set-frame-parameter nil 'alpha (+ (frame-parameter nil 'alpha) -2))
+    (message "This is a minimum value of transparency!")))
+
+(defun transparency-decrease ()
+  "Decrease level of transparency for the current frame"
+  (interactive)
+  (transparency-set-initial-value)
+  (if (< (frame-parameter nil 'alpha) 100)
+      (set-frame-parameter nil 'alpha (+ (frame-parameter nil 'alpha) +2))
+    (message "This is a minimum value of transparency!")))
+
+;; sample keybinding for transparency manipulation
+(global-set-key (kbd "C-?") 'transparency-set-value)
+;; the two below let for smooth transparency control
+(global-set-key (kbd "C->") 'transparency-increase)
+(global-set-key (kbd "C-<") 'transparency-decrease)
+
+(transparency-set-value 97)
+
+;; (desktop-save-mode 1)
+
+;; ;;(server-start)
+
+;; ;; Experimentation
+;; ;; TODO Move to separate theme file.

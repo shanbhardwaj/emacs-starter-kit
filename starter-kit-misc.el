@@ -9,7 +9,7 @@
   (tool-bar-mode -1)
   (blink-cursor-mode -1))
 
-(setq visible-bell t
+(setq visible-bell 'top-bottom
       font-lock-maximum-decoration t
       inhibit-startup-message t
       transient-mark-mode t
@@ -42,7 +42,7 @@
 (global-font-lock-mode t)
 
 ;; You really don't need this; trust me.
-(menu-bar-mode -1)
+;;(menu-bar-mode -1)
 
 ;; Save a list of recent files visited.
 (recentf-mode 1)

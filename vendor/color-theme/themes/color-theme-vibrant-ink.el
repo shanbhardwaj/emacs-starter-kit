@@ -1,23 +1,16 @@
-;; color-theme-vibrant-ink
-;;
-;; This is an emacs color-theme library.  A port of the TextMate theme VibrantInk
-;; Most of it was found on the emacs-rails google group
-;;
-;; Vibrant Ink Textmate: http://alternateidea.com/blog/articles/2006/1/3/textmate-vibrant-ink-theme-and-prototype-bundle
-;; Vivid Chalk in emacs-rails Google Groups: http://groups.google.com/group/emacs-on-rails/browse_thread/thread/f99e3707e59eff6d
-
-;; (require 'color-theme)
+(eval-when-compile
+  (require 'color-theme))
 
 (defun color-theme-vibrant-ink () 
   "Emacs Vibrant Ink" 
   (interactive) 
   (color-theme-install 
    '(color-theme-vibrant-ink 
-     ((background-color . "#111111") 
+     ((foreground-color . "white") 
+      (background-color . "#000000") 
       (background-mode . dark) 
       (border-color . "black") 
       (cursor-color . "white") 
-      (foreground-color . "white") 
       (list-matching-lines-face . bold) 
       (view-highlight-face . highlight)) 
      (default ((t (nil)))) 

@@ -1,6 +1,10 @@
 ;;; starter-kit-eshell.el --- Making the defaults a bit saner
 ;;
 ;; Part of the Emacs Starter Kit
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/eshell"))
+(require 'eshell)
+
+(add-to-list 'load-path (concat dotfiles-dir "/vendor"))
 
 (setq eshell-cmpl-cycle-completions nil
       eshell-save-history-on-exit t
