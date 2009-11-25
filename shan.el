@@ -37,6 +37,7 @@
 (global-visual-line-mode 1)
 (global-linum-mode 1)
 (setq mac-allow-anti-aliasing t) 
+(setq major-mode 'org-mode)
 
 (modify-all-frames-parameters
  '((font . "-unknown-Bitstream Vera Sans Mono-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")))
@@ -201,7 +202,6 @@
 (require 'color-theme)
 (color-theme-initialize)
 (color-theme-vibrant-ink)
-(color-theme-example)
 
 ;; Functions
 
@@ -290,6 +290,17 @@
 (global-set-key (kbd "C-<") 'transparency-decrease)
 
 (transparency-set-value 97)
+
+;;=================================
+; Install mode-compile to give friendlier compiling support!
+;;=================================
+(autoload 'mode-compile "mode-compile"
+   "Command to compile current buffer file based on the major mode" t)
+(global-set-key "\C-cc" 'mode-compile)
+(autoload 'mode-compile-kill "mode-compile"
+ "Command to kill a compilation launched by `mode-compile'" t)
+(global-set-key "\C-ck" 'mode-compile-kill)
+
 
 ;; (desktop-save-mode 1)
 

@@ -2,8 +2,8 @@
 
 ;; Copyright (C) 2002, 2003, 2004 David Ponce
 
-;; Author: Marcelo de Moraes Serpa <marcelo@marcelo-laptop>
-;; Created: 2008-11-02 22:34:27-0200
+;; Author: Shantanu Bhardwaj <shan@shan-mbp.local>
+;; Created: 2009-11-24 12:05:12-0800
 ;; Keywords: syntax
 ;; X-RCS: $Id$
 

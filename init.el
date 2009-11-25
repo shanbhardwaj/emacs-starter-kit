@@ -46,6 +46,7 @@
 (require 'starter-kit-lisp)
 (require 'starter-kit-ruby)
 (require 'starter-kit-org)
+(require 'starter-kit-ecb)
 ;; (require 'starter-kit-js)
 
 (regen-autoloads)

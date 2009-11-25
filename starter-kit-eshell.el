@@ -2,6 +2,7 @@
 ;;
 ;; Part of the Emacs Starter Kit
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/eshell"))
+;;(load "eshell-auto")
 (require 'eshell)
 
 (add-to-list 'load-path (concat dotfiles-dir "/vendor"))
