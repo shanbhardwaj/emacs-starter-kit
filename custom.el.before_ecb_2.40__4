@@ -1,0 +1,41 @@
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(abbrev-file-name "~/.emacs.d/cache/Abbreviations")
+ '(aquamacs-additional-fontsets nil t)
+ '(aquamacs-customization-version-id 204 t)
+ '(aquamacs-scratch-file "~/.emacs.d/cache/scratch buffer")
+ '(aquamacs-tool-bar-user-customization nil t)
+ '(auto-save-list-file-prefix "~/.emacs.d/auto-save-list/.saves-")
+ '(browse-url-browser-function (quote browse-url-default-macosx-browser))
+ '(desktop-path (quote ("~/.emacs.d/cache/" "." "~")))
+ '(display-battery-mode t)
+ '(display-time-mode t)
+ '(ecb-basic-buffer-sync nil)
+ '(ecb-cache-directory-contents-not nil)
+ '(ecb-layout-window-sizes nil)
+ '(ecb-options-version "2.40")
+ '(ecb-vc-enable-support t)
+ '(initial-major-mode (quote org-mode))
+ '(ns-alternate-modifier (quote meta))
+ '(ns-tool-bar-display-mode nil t)
+ '(ns-tool-bar-size-mode nil t)
+ '(recentf-save-file "~/.emacs.d/cache/Recent Files.el")
+ '(resize-mini-windows nil)
+ '(savehist-file "~/.emacs.d/cache/minibuffer-history.el")
+ '(size-indication-mode t)
+ '(tabbar-mode nil nil (tabbar))
+ '(text-mode-hook (quote (auto-detect-wrap))))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(aquamacs-variable-width ((t (:family "monaco"))))
+ '(echo-area ((default nil) (nil nil)))
+ '(html-mode-default ((t (:inherit sgml-mode-default :height 100 :family "Monaco"))) t)
+ '(latex-mode-default ((t nil)))
+ '(ruby-mode-default ((t (:inherit autoface-default :height 120 :family "Bitstream Vera Sans Mono"))) t)
+ '(text-mode-default ((t nil))))

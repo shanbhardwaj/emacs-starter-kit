@@ -15,12 +15,12 @@
       transient-mark-mode t
       color-theme-is-global t
       delete-by-moving-to-trash t
-      shift-select-mode nil
+      ;; shift-select-mode t
       truncate-partial-width-windows nil
       uniquify-buffer-name-style 'forward
-      whitespace-style '(trailing lines space-before-tab
+      whitespace-style '(trailing space-before-tab
                                   indentation space-after-tab)
-      whitespace-line-column 100
+      whitespace-line-column 80
       ediff-window-setup-function 'ediff-setup-windows-plain
       oddmuse-directory (concat dotfiles-dir "oddmuse")
       save-place-file (concat dotfiles-dir "places"))
@@ -50,6 +50,7 @@
 ;; Highlight matching parentheses when the point is on them.
 (show-paren-mode 1)
 
+(visual-line-mode 1)
 ;; ido-mode is like magic pixie dust!
 (when (> emacs-major-version 21)
   (ido-mode t)
@@ -84,7 +85,7 @@
 
 (add-to-list 'auto-mode-alist '("COMMIT_EDITMSG$" . diff-mode))
 (add-to-list 'auto-mode-alist '("\\.css$" . css-mode))
-;; (add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
+(add-to-list 'auto-mode-alist '("\\.yml$" . yaml-mode))
 (add-to-list 'auto-mode-alist '("\\.rb$" . ruby-mode))
 (add-to-list 'auto-mode-alist '("Rakefile$" . ruby-mode))
 ;;(add-to-list 'auto-mode-alist '("\\.js\\(on\\)?$" . js2-mode))

@@ -157,5 +157,10 @@
   (interactive)
   (message (if (y-or-n-p "Do you have a test for that? ") "Good." "Bad!")))
 
+(defun word-count ()
+  "Count words in buffer"
+  (interactive)
+  (shell-command-on-region (point-min) (point-max) "wc -w"))
+
 (provide 'starter-kit-defuns)
 ;;; starter-kit-defuns.el ends here

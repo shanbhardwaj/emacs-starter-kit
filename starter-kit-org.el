@@ -1,12 +1,17 @@
-(setq load-path 
-      (cons (concat (file-name-directory (or load-file-name buffer-file-name))
-	      "org/lisp")
-      load-path))
-(setq load-path 
-      (cons (concat (file-name-directory (or load-file-name buffer-file-name))
-	      "org/contrib/lisp")
-	      load-path)) 
-(require 'org-install)
+;; (setq load-path 
+;;       (cons (concat (file-name-directory (or load-file-name buffer-file-name))
+;; 	      "org/lisp")
+;;       load-path))
+;; (setq load-path 
+;;       (cons (concat (file-name-directory (or load-file-name buffer-file-name))
+;; 	      "org/contrib/lisp")
+;; 	      load-path)) 
+;; (setq load-path 
+;;      (cons (concat (file-name-directory (or load-file-name 	buffer-file-name))
+;; 			      "remember")
+;; 		      load-path))
+
+;; (require 'org-install)
 
 (require 'org)
  (add-to-list 'auto-mode-alist '("\\.org$" . org-mode))
@@ -17,9 +22,17 @@
  (global-set-key "\C-cb" 'org-iswitchb)
  (global-set-key (kbd "M-m") 'org-remember)
  (global-set-key [f12] 'org-agenda)
+ ;; (global-set-key [f2] 'org-store-link)
+
 
 (setq diary-file "~/org/diary")
-(setq org-directory "~/org/")
+;; Set to the location of your Org files on your local system
+(setq org-directory "~/org")
+;; Set to the name of the file where new notes will be stored
+(setq org-mobile-inbox-for-pull "~/org/flagged.org")
+;; Set to <your Dropbox root directory>/MobileOrg.
+(setq org-mobile-directory "~/Dropbox/MobileOrg")
+
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (global-set-key (kbd "C-.") 'org-agenda)
 (setq mark-diary-entries-in-calendar t)
@@ -93,9 +106,10 @@
 ;;=================================
 ;; Remember mode
 ;;=================================
-(require 'remember)
-;;(require 'remember-autoloads)
-(org-remember-insinuate)
+(add-to-list 'load-path "/Users/shan/.emacs.d/emacs-starter-kit/vendor/remember")
+;;(require 'remember)
+(require 'remember-autoloads)
+;;(org-remember-insinuate)
 ;;(add-to-list 'load-path (concat dotfiles-dir "/vendor/remember"))
 (setq remember-annotation-functions '(org-remember-annotation))
 (setq remember-handler-functions '(org-remember-handler))
@@ -109,7 +123,7 @@
 
 (setq org-remember-templates
       '(("Todo" ?t "* TODO %^{Brief Description} \n%?Added: %U" "~/org/refile.org" "Tasks")
-        ("Note" ?n "* NOTE: \tAdded: %U %^{Brief Description} %^g\n%?" "~/org/refile.org" bottom nil)
+        ("Note" ?n "* NOTE: %^{Brief Description} \t\tAdded: %U %^g\n%?" "~/org/refile.org" bottom nil)
         ("Idea" ?i "* IDEA %^{Title}\n  %u\n %i\n " "~/org/journal.org" "New Ideas")))
 
 ;; refile tasks 
@@ -154,4 +168,4 @@
 (add-hook 'diary-hook 'my/refresh-appt-list)
 
 (provide 'starter-kit-org)
-;; starter-kit-ork.el ends here
+;; starter-kit-org.el ends here

@@ -1,16 +1,3 @@
-;; Railscasts color theme for Emacs.
-;;
-;; To use add the following to your .emacs file:
-;;
-;; (require 'color-theme)
-;; (color-theme-initialize)
-;; (load-file "~/.emacs.d/site-lisp/themes/color-theme-railscasts.el")
-;; (color-theme-railscasts)
-;;
-;; MIT License Copyright (c) 2009 Oleg Shaldybin <oleg.shaldybin@gmail.com>
-;; Inspired by the brilliant Railscasts theme for TextMate
-;;
-
 (defun color-theme-railscasts ()
   (interactive)
   (color-theme-install
@@ -19,7 +6,7 @@
 	(background-color . "black")
 	;; (background-color . "#232323")
       (background-mode . dark)
-      (cursor-color . "#5A647E")
+      (cursor-color . "white")
       (foreground-color . "#E6E1DC"))
      (default ((t (nil))))
      (bold ((t (:bold t))))

@@ -39,7 +39,7 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 
 ;; Window switching. (C-x o goes to the next window)
-(windmove-default-keybindings) ;; Shift+direction
+;; (windmove-default-keybindings) ;; Shift+direction
 (global-set-key "\C-xO" (lambda () (interactive) (other-window -1))) ;; back one
 (global-set-key "\C-x\C-o" (lambda () (interactive) (other-window 2))) ;; forward two
 
@@ -86,6 +86,9 @@
   (lambda () (interactive)
     (let ((case-fold-search isearch-case-fold-search))
       (occur (if isearch-regexp isearch-string (regexp-quote isearch-string))))))
+
+;; Count words in the buffer
+(global-set-key (kbd "C-S-N") 'word-count)
 
 (provide 'starter-kit-bindings)
 ;;; starter-kit-bindings.el ends here

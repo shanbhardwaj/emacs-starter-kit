@@ -46,9 +46,9 @@
 (require 'starter-kit-lisp)
 (require 'starter-kit-ruby)
 (require 'starter-kit-org)
-(require 'starter-kit-ecb)
+;;;  (require 'starter-kit-ecb)
 ;; (require 'starter-kit-js)
-
+(require 'starter-kit-erlang)
 (regen-autoloads)
 (load custom-file 'noerror)
 
@@ -57,7 +57,7 @@
 (setq system-specific-config (concat dotfiles-dir system-name ".el")
       user-specific-config (concat dotfiles-dir user-login-name ".el"))
 
-(if (file-exists-p system-specific-config) (load system-specific-config))
+;; (if (file-exists-p system-specific-config) (load system-specific-config))
 (if (file-exists-p user-specific-config) (load user-specific-config))
 
 (provide 'init)

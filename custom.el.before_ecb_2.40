@@ -1,0 +1,24 @@
+(custom-set-variables
+  ;; custom-set-variables was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(aquamacs-additional-fontsets nil t)
+ '(aquamacs-customization-version-id 204 t)
+ '(aquamacs-tool-bar-user-customization nil t)
+ '(browse-url-browser-function (quote browse-url-default-macosx-browser))
+ '(default-frame-alist (quote ((vertical-scroll-bars) (font . "-unknown-Bitstream Vera Sans Mono-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1") (tool-bar-lines . 0) (fringe) (right-fringe) (left-fringe . 1) (internal-border-width . 0) (cursor-type . box) (menu-bar-lines . 1) (foreground-color . "white") (background-color . "#000000") (background-mode . dark) (border-color . "black") (cursor-color . "white"))))
+ '(ecb-cache-directory-contents-not nil)
+ '(ecb-vc-enable-support t)
+ '(ecb-vc-supported-backends (quote ((ecb-vc-dir-managed-by-CVS . ecb-vc-state) (ecb-vc-dir-managed-by-RCS . ecb-vc-state) (ecb-vc-dir-managed-by-SCCS . ecb-vc-state) (ecb-vc-dir-managed-by-SVN . ecb-vc-state) (ecb-vc-dir-managed-by-GIT . ecb-vc-dir))))
+ '(ns-alternate-modifier (quote meta))
+ '(ns-tool-bar-display-mode nil t)
+ '(ns-tool-bar-size-mode nil t)
+ '(resize-mini-windows nil))
+(custom-set-faces
+  ;; custom-set-faces was added by Custom.
+  ;; If you edit it by hand, you could mess it up, so be careful.
+  ;; Your init file should contain only one such instance.
+  ;; If there is more than one, they won't work right.
+ '(default ((t (:inherit outline-mode-default :stipple nil :strike-through nil :underline nil :slant normal :weight normal :height 120 :width normal :family "Bitstream Vera Sans Mono"))))
+ '(org-mode-default ((t (:inherit outline-mode-default :stipple nil :strike-through nil :underline nil :slant normal :weight normal :height 120 :width normal :family "Bitstream Vera Sans Mono")))))

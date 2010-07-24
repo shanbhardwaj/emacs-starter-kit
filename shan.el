@@ -1,6 +1,6 @@
 ;; DESCRIPTION: shan's settings
 
-(add-to-list 'load-path (concat dotfiles-dir "/vendor"))
+(add-to-list 'load-path (concat dotfiles-dir "vendor"))
 ;;=====================================
 ;; Save backups in one place
 ;; Put autosave files (ie #foo#) in one place, *not*
@@ -35,14 +35,28 @@
 (column-number-mode 1)
 (recentf-mode 1)
 (global-visual-line-mode 1)
-(global-linum-mode 1)
+;; (global-linum-mode 1)
 (setq mac-allow-anti-aliasing t) 
-(setq major-mode 'org-mode)
+(setq initial-major-mode 'org-mode)
 
-(modify-all-frames-parameters
- '((font . "-unknown-Bitstream Vera Sans Mono-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1")))
-(set-frame-font "-unknown-Bitstream Vera Sans Mono-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1" "keep-size")
+;; (modify-all-frames-parameters '((font . "-unknown-Bitstream Vera
+;;  Sans Mono-normal-normal-normal-*-10-*-*-*-m-0-iso10646-1")))
+;;  (set-frame-font "-unknown-Bitstream Vera Sans
+;;  Mono-normal-normal-normal-*-10-*-*-*-m-0-iso10646-1" "keep-size")
 
+
+;;; The below lines make pcomplete by the tab-complete mode for shell mode.
+;;; Therefore, the *Completions* buffer will disappear automatically after a
+;;; selection is chosen.
+(require 'shell)
+(define-key shell-mode-map (kbd "TAB") 'pcomplete)
+(add-hook 'shell-mode-hook 'pcomplete-shell-setup)
+(setq pcomplete-cycle-completions nil)
+
+;;; --- Set Environment Variables ---
+
+;;; Set the TERM type.
+(setenv "TERM" "zsh")
 
 ;;=====================================
 ;; Clojure
@@ -81,9 +95,9 @@
 ;;=====================================
 ;; Minor Modes
 ;;=====================================
-;; (add-to-list 'load-path (concat dotfiles-dir "/vendor/textmate.el"))
+;; (add-to-list 'load-path (concat dotfiles-dir "vendor/textmate.el"))
 ;; (require 'textmate)
-;; (textmate-mode)
+(textmate-mode)
 (require 'whitespace)
 
 ;;=====================================
@@ -91,9 +105,9 @@
 ;;=====================================
 ;;(add-to-list 'load-path "~/.emacs.d/vendor/twittering-mode/")
 ;;(add-to-list 'load-path ("~/.emacs.d/emacs-starter-kit/vendor/twitteing-mode/"))
-(add-to-list 'load-path (concat dotfiles-dir "/vendor/twittering-mode"))
-(require 'twittering-mode)
-(setq twittering-username "shanbhardwaj")
+;; (add-to-list 'load-path (concat dotfiles-dir "/vendor/twittering-mode"))
+;; (require 'twittering-mode)
+;; (setq twittering-username "shanbhardwaj")
 
 ;;=====================================
 ;; Major Modes
@@ -185,7 +199,7 @@
             (local-set-key (kbd "C-c <down>")  'hs-show-all)
             (hs-minor-mode t)))         ; Hide and show blocks
 (add-to-list 'auto-mode-alist '("\\.h\\'" . objc-mode))
-(require 'objj-mode)
+;; (require 'objj-mode)
 
 ;;=====================================
 ;; gist
@@ -201,7 +215,16 @@
 (add-to-list 'load-path (concat dotfiles-dir "/vendor/color-theme"))
 (require 'color-theme)
 (color-theme-initialize)
-(color-theme-vibrant-ink)
+;; (color-theme-vibrant-ink)
+;; (color-theme-railscasts)
+;; (modify-all-frames-parameters '((font . "-apple-monaco*-medium-r-normal--10-*-*-*-*-*-fontset-monaco1")))
+;;  (set-frame-font "-unknown-Bitstream Vera Sans
+;;  Mono-normal-normal-normal-*-10-*-*-*-m-0-iso10646-1" "keep-size")
+
+;; (modify-all-frames-parameters '((font . "-unknown-Bitstream Vera Sans Mono-normal-normal-normal-*-10-*-*-*-m-0-iso10646-1")))
+;; (set-frame-font "-unknown-Bitstream Vera Sans Mono-normal-normal-normal-*-10-*-*-*-m-0-iso10646-1" "keep-size")
+
+(set-default-font "-unknown-Bitstream Vera Sans Mono-normal-normal-normal-*-12-*-*-*-m-0-iso10646-1" "keep-size")
 
 ;; Functions
 
@@ -210,7 +233,7 @@
 ;;=====================================
 ;; Full screen toggle
 ;;=====================================
-
+(global-set-key [f2] 'ns-toggle-fullscreen)
 
 ;;=====================================
 ;; Keyboard
@@ -289,22 +312,66 @@
 (global-set-key (kbd "C->") 'transparency-increase)
 (global-set-key (kbd "C-<") 'transparency-decrease)
 
-(transparency-set-value 97)
+(transparency-set-value 95)
 
 ;;=================================
 ; Install mode-compile to give friendlier compiling support!
 ;;=================================
-(autoload 'mode-compile "mode-compile"
-   "Command to compile current buffer file based on the major mode" t)
-(global-set-key "\C-cc" 'mode-compile)
-(autoload 'mode-compile-kill "mode-compile"
- "Command to kill a compilation launched by `mode-compile'" t)
-(global-set-key "\C-ck" 'mode-compile-kill)
+;; (autoload 'mode-compile "mode-compile"
+;;    "Command to compile current buffer file based on the major mode" t)
+;; (global-set-key "\C-cc" 'mode-compile)
+;; (autoload 'mode-compile-kill "mode-compile"
+;;  "Command to kill a compilation launched by `mode-compile'" t)
+;; (global-set-key "\C-ck" 'mode-compile-kill)
 
+;;=================================
+;; window numbering mode 
+;;=================================
+;; (add-to-list 'load-path "/path/to/window-numbering")
+(require 'window-numbering)
+(window-numbering-mode 1)
+
+;;=================================
+;; anything.el config
+;;=================================
+(add-to-list 'load-path (concat dotfiles-dir "/vendor/anything-config.el"))
+(require 'anything)
+(require 'anything-config)
+(setq anything-sources
+      (list anything-c-source-buffers
+            anything-c-source-file-name-history
+            anything-c-source-info-pages
+            anything-c-source-man-pages
+	    anything-c-source-file-cache
+            anything-c-source-emacs-commands))
+(global-set-key (kbd "M-X") 'anything)
+
+
+;;=================================
+;; paredit stuff 
+;;=================================
+(autoload 'paredit-mode "paredit"
+      "Minor mode for pseudo-structurally editing Lisp code." t)
+
+;; auto load paredit for ruby mode
+(add-hook 'ruby-mode-hook(lambda() (paredit-mode +1)))
+
+;; problem with paredit inserting the extra space before function arguments in ruby
+(eval-after-load 'paredit-mode
+  '(defun paredit-space-for-delimiter-p (endp delimiter)
+     (and (not (if endp (eobp) (bobp)))
+          (memq (char-syntax (if endp (char-after) (char-before)))
+                (list ?\"  ;; REMOVED ?w ?_
+                      (let ((matching (matching-paren delimiter)))
+                        (and matching (char-syntax matching)))))
+          (memq major-mode '(c-mode ruby-mode)))))
+
+(add-hook 'ruby-mode-hook 'whitespace-mode)
 
 ;; (desktop-save-mode 1)
 
-;; ;;(server-start)
+;; (server-start)
 
 ;; ;; Experimentation
 ;; ;; TODO Move to separate theme file.
+

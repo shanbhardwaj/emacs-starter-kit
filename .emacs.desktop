@@ -1,0 +1,29 @@
+;; -*- mode: emacs-lisp; coding: emacs-mule; -*-
+;; --------------------------------------------------------------------------
+;; Desktop File for Emacs
+;; --------------------------------------------------------------------------
+;; Created Sat Jun 26 11:45:10 2010
+;; Desktop file format version 206
+;; Emacs version 23.1.90.1
+
+;; Global section:
+(setq desktop-missing-file-warning nil)
+(setq tags-file-name nil)
+(setq tags-table-list nil)
+(setq search-ring nil)
+(setq regexp-search-ring '("desktop"))
+(setq register-alist '((114 file . "/Users/shan/.emacs.d/emacs-starter-kit/starter-kit-registers.el") (98 file . "/Users/shan/.emacs.d/emacs-starter-kit/starter-kit-bindings.el") (105 file . "/Users/shan/.emacs.d/emacs-starter-kit/init.el")))
+(setq file-name-history '("~/.emacs.d/emacs-starter-kit/" "~/.ido.last" "~/.emacs.d/emacs-starter-kit/starter-kit-org.el" "~/.emacs.d/emacs-starter-kit/starter-kit-erlang.el" "~/.emacs.d/emacs-starter-kit/init.el" "~/.emacs.d/emacs-starter-kit/elpa/rinari-2.1/rinari.el" "~/.emacs" "~/org/gigzee.ics" "~/.projects.ede" "~/.emacs.d/emacs-starter-kit/starter-kit-ecb.el" "/usr/share/emacs/22.1/lisp/international/mule.el.gz" "~/.emacs.d/emacs-starter-kit/shan.el" "~/.emacs.d/emacs-starter-kit/loaddefs.el" "~/projects/gigzee/web/gigzee/app/controllers/accounts_controller.rb" "~/org/journal.org" "~/org/yoga.org" "~/org/gigzee.org" "~/org/diary" "~/org/home.org" "~/org/unscrewed.org" "~/org/todo.org"))
+
+;; Buffer section -- buffers listed in same order as in buffer list:
+(desktop-create-buffer 206
+  "/Users/shan/.emacs.d/emacs-starter-kit/shan.el"
+  "shan.el"
+  'emacs-lisp-mode
+  '(auto-fill-mode visual-line-mode global-visual-line-mode yas/minor-mode eldoc-mode textmate-mode paredit-mode)
+  12817
+  '(2074 nil)
+  nil
+  nil
+  '((buffer-file-coding-system . undecided-unix) (column-number-mode . t) (truncate-lines)))
+
